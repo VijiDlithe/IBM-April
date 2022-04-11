@@ -1,0 +1,120 @@
+IDE - Integrated Development Environment
+Can create various kind of Application 
+
+1. Console Application - Character Based Application
+2. Windows Application - Desktop Application (GUI- menus, icon, controls(like textbox, buttons, check bos and so on...)
+3. Web Application (ASP .Net) - Web site - for Online - GUI
+4. WCF(Windows Communication Foundation) - Distrubuted Application (Character based App)
+5. WPF (Windows Presentation Foundation) - (GUI) - Desktopp Application
+6. MVC - (GUI)
+7. .Net Core Application - Platform Independant
+8. Entity Framework Applications
+
+--------------------------------------------
+C:\Users\ADMIN\source\repos - default Path
+
+---------------------
+using System;
+
+namespace BasicPrgs // namespace Keyword - like folder
+{
+    class Emp // user defined class
+    {
+
+    }
+    class Program  // class - One of the OOPS concepts , Program - Name of user defined Class
+    {
+        static void Main(string[] args) // Main similar to our C and C++ 
+        {
+            Console.WriteLine("Hello World!"); //Output statement - .WriteLine - methods of Console class
+            Console.WriteLine("Your Name");
+        }
+    }
+}
+1. In visual studio keywords will be in dark blue
+
+//using ,namespace,class,static ,void,string - 6 keywords
+// Console (Predefined) - light blue color - Predefined / user defined class
+// string[] args - array
+
+2. A console Application can have only one Main method.(Important)
+------------------------
+American Standard Code for Information Interchange
+
+Every keys has an code .
+0,1 - Machine Lang
+from Alphabet, numbers, symbols , other function key to 0,1
+Middle ware - Ascii;
+
+Non printable character (ctrl,shift, capslock, arrow keys, del, ins and so on...) - 1 - 31 
+Enter Key - 13
+back space - 8
+
+(Printable characters)
+Space bar - 32 
+Captial letter - 65 - 90
+Small Letter  - 97-122
+Numeric - 48 - 57
+symbols - 33-47 , 58-63,91-96, 123-126
+
+Latin Lang - from 127 
+
+ -------------------------------------
+  // Console.ReadLine();  - Similar to Scanf of C lang
+            // The default type is string;
+            // more than one character is called as string
+            // Convert.ToChar - convert from string to character
+            //  Convert - predefined class
+       
+---------------------------------------
+.cs - extension name of C sharp
+Comments
+1. Single Line - //
+2. Multi Line - /*     */
+3. Document -
+	Be in the top of the file.
+	It contains the details about File created by, created date, created time, Modified by, Modified Date&Time and 	Modified Modules .
+	It gives the details abot the files.
+/*
+*created by  - xyx
+*created date - 
+*created time -
+*/
+
+static - Keyword - used to maintain a method/ variable through out the program.
+we can use static before a variable, method, class
+Compiler called the main() method/function in c,c++, java, c sharp 
+compiler can access static main method withou creating object, because a static can retain a value throug out the prog
+
+ main() - will be out of class in CPP. 
+in c sharp and java - main  method will be within class.
+
+
+-----------------------------
+diff btw method and function
+
+if you create a function within a class , its called as a method,
+Out of class called as a function.
+
+C - supports only functions
+C Sharp - Supports methods , not support functions - because all should create within class only
+C++ - supports both method and function - oops as well as modular program.
+
+----------------------------------------
+write the program to find biggest no from the 3 values using Ternary Operator
+
+Constraints
+1. should use and (&&) condition
+2. The output condition should check in the singe line.
+
+
+
+
+
+
+
+
+
+
+
+

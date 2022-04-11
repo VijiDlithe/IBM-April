@@ -1,0 +1,190 @@
+Computer 
+1. Sw
+ 1. System
+     1. Lang (we can create new lang as well as new packages By using a languages)
+     2. Packages(Readymade Option)
+
+ 2. Application Sw
+    1. Lang (we can create new lang as well as new packages By using a languages)
+     2. Packages(Readymade Option)
+
+2. Hw
+Physical Components
+---------------------------------------------------------------------------------
+What is program?
+Set of proper instructions are called a program.
+
+what is project?
+set of programs are called a project.
+
+diff between proj and sw?
+Medical project.
+
+We have to buy the license, bring our project to the market.
+SW.
+---------------------------------------------------------------
+int a; // declaration
+int a=10; // initialization
+a=10; assigning statement
+c=a+b; // processing / expression
+Skipping/jumping
+1. break
+2. Continue
+3. goto (java and c Sharp)
+
+32 - C lang
+Keywords are called as a reserved words.
+It resserved for some particular task.
+
+we should not use a keyword  as a variable.
+----------------------------
+Techni to before create a program.
+1. Flowchart (To explain about your project to the client)
+2. Algorithm (development)
+3. Pseudocode(development)
+
+(Dryrun)
+----------------------------------------------
+int a; // C, C++,java , C sharp
+int a; //Python is a dynamic datatype programming lang.
+
+------------------------------------
+main()
+{
+
+int a=10;
+int b=20;
+a=a+b;
+b=a-b;
+a=a-b;
+
+printf("%d",a); //20
+printf("%d",b); //10
+}
+----------------------------
+Operators
+1.  Arithmetic
+2. Logical
+3. Comparison
+4. Arithmetic assigmnent
+5. bitwise
+6. Ternary
+7. Shift 
+------------------------------
+
+1. Binary
+c=a-b; (- Binary)
+
+2. Unary
+c= -b; (- unary)  
+---------------------------------
+main()
+{
+int a=5;
+int b;
+printf("a is : %d",a); //
+b=a++;  // ; - terminator . It indicates end of the statement
+printf("a is : %d",a);//6
+printf("a is : %d",b);//5
+b=++a;
+printf("a is : %d",a); //7
+printf("a is : %d",b); // 7
+b=a--;
+printf("a is : %d",a);//6
+printf("a is : %d",b);//7
+b=--a;
+printf("a is : %d",a);//
+printf("a is : %d",b);//
+}
+
+--------------------------------------
+
+Control Statements :
+
+1. Branching/decision Making
+	1. If (1. if (cond) , 2. if(cond)... else... 3. if (cond) ... else if (cond)... else if (cond)... else...  (Ladder If)
+	2. switch
+	3. Ternary
+
+2. Looping
+	1. for
+	2. do
+	3. while
+
+Nested If
+if
+	if
+	
+	else
+else
+	if
+
+	else
+
+-------------------------------------------------------------------
+diff between If and switch
+1. If - True or false
+   switch choose the options
+
+2. we can use default anywhere in the switch case
+    we can't use else before the If
+
+Find the biggest no from 3 varibles using ternary
+
+Note : 1. Shouldnot use && operator
+	2. Statement should be in a single Line
+
+
+main()
+{
+int a=10;
+int b=20;
+int c=30;
+
+(a>b)?printf("a is big"):printf("b is big");
+}
+
+? - True
+: - False
+------------------------------------------------
+
+x=-3+4*5-6
+(-3)+(4*5)-6
+((-3)+(4*5))-6
+((-3)+20)-6
+(17)-6
+=11
+-----------------
+x=3+4%5-6
+=3+(4%5)-6
+=(3+4)-6
+=7-6
+=1
+------------------------
+x=-3*4%-6/5
+=(-3)*4%(-6)/5
+=((-3)*4)%(-6))/5
+=-12%6/5
+=0/5
+=0
+------------------------
+x=(7+6)%5/2
+=((7+6)%5)/2
+=(13%5)/2
+=3/2
+=1
+-------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
