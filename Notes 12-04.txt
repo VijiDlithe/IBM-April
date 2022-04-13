@@ -1,0 +1,171 @@
+Login Screen
+ user name : IBM
+ password : ibm123
+
+in web page - presentation Layer (Frontend Technology)
+
+Database Sw
+1. MySql / php 
+2. Microsoft SQL Server mgmt (SSMS) /  Visual studio (Dot net) -Microsoft
+3. Oracle (Java) - Oracle
+4. Mongo DB (Popular)
+5. NoSql (Getting popular)
+6. MS Access / (visual basic) Outdated 
+
+
+MySql (Database Sw)
+1. Shopping mall(DB)
+    1. Customer (Table)
+	(Custid,custname,mobile - fields)
+
+    2. Product (Table)
+	(Prodid,prodname, price - fields)
+
+
+2. Billing Sw Corporate(DB)
+	1. Client (Table)
+	    (cid,cname, projid -field)
+        2. Project (Table)
+	    (projid,projname, duration - fields)
+
+Oracle (Database Sw)
+3. Airtel Mgmt(DB)
+     1. Plans (Table)
+	(planid,planname, offer -  fields)
+     2. Customer (Table)
+	(custid,custname,planid - fields)
+----------------------------------------------------------
+select * from Tablename; // Query
+
+int a; // declaration statement
+(C, C++, java, C sharp - language)
+-------------------------------------------------------
+
+; - is not mandatory for single query.
+if u want to use multiple query to a single execution, have to use ;
+
+create table job(jobid int not null primary key auto_increment,jobname varchar(50), salary int null)
+
+varchar(50) - text - alphanumeric
+adm no - should not repeat to another student in the college.(unique value)
+
+to the text field '' - must
+insert into job(jobname,salary) values('Manager',200000); 
+
+insert into job(jobname,salary) values('Asst Manager',150000);
+insert into job(jobname,salary) values('Senior Developer',120000);
+insert into job(jobname,salary) values('Junior Developer',80000);
+insert into job(jobname,salary) values('Admin',150000);
+insert into job(jobname,salary) values('HR',180000);
+insert into job(jobname,salary) values('Web Designer',70000);
+insert into job(jobname,salary) values('Help Desk',60000);
+insert into job(jobname,salary) values('Network Admin',90000);
+insert into job(jobname,salary) values('DB Admin',100000);
+
+select * from job;
+------------------------------------------------------------------
+create table Emp(empid varchar(50) primary key,empname varchar(50) not null, city varchar(50) null, jobid int, foreign key(jobid) references job(jobid));
+------------------
+
+select Empid,empname from Emp;
+select Empid,empname from Emp where jobid>5; # where - Clause - Give some constraints
+
+select * from Emp order by Empname;
+select * from Emp order by Empname desc;
+
+select * from Emp where Empname like 'C%';
+select * from Emp where Empname like '%a';
+
+select * from Emp where Empname like '%w%';
+select * from Emp where Empname like '%w%' and jobid>3;
+--------------------------
+select Empid "Employee Id",empname "Employee Name",city Location, jobid "Job ID" from Emp;
+
+select * from Emp where Jobid in(4,7,8);
+
+select * from Emp where Empname like '%a' order by city;
+
+select * from Job where salary between 80000 and 100000;
+
+select * from Emp where empname between 'L' and 'T';
+
+select sum(salary) from job;
+
+Scalar/aggregate  function - can return only one data/ans/result.
+
+select avg(salary) from job;
+
+select sum(salary),avg(salary),min(salary),max(salary),count(salary) from job;
+
+select sum(salary) Total ,avg(salary) Average,min(salary) Minimum ,max(salary) Maximum,count(salary) Nos from job;
+
+select avg(salary)/3, round(avg(salary)/3) from job;
+select avg(salary)/3, round(avg(salary)/3),round(avg(salary)/3,2) from job;
+
+select jobid from emp;
+
+select distinct jobid from emp;
+---------------------------------------------------------
+describe Emp;
+
+create table Job_Copy as select * from Job;
+
+create table New_Job (Jobid int);
+
+alter table  New_job rename lastestjob;
+alter table latestjob Modify jobid varchar(50) not null;
+alter table latestjob add name jobname varchar(50),add cdate timestamp);
+alter table latestjob drop column cdate;
+
+
+create table salary(sid int not null, amount int not null)
+partition by range(amount)
+(PARTITION p1 values less than (5000),
+ PARTITION p2 values less than (10000),
+ PARTITION p3 values less than (20000),
+ PARTITION p4 values less than (30000))
+----------------------------------------------------
+insert into salary values(101,25000);
+insert into salary values(102,15000);
+insert into salary values(103,5000);
+insert into salary values(104,2000);
+insert into salary values(105,22000);
+insert into salary values(106,2500);
+insert into salary values(107,29000);
+
+
+insert into salary values(108,31000); -- Error , It crossed the limitation of partition
+
+
+information_schema - predefined Database
+This db used to maintain internal db, user defined db, tables, partitions, procedures, fields;
+
+SELECT par FROM `PARTITIONS` ORDER BY `TABLE_NAME` ASC
+
+SELECT PART
+
+SELECT partition_name,table_rows,table_name FROM `PARTITIONS` where `TABLE_NAME` like 'salary'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

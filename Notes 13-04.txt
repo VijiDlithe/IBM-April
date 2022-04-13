@@ -1,0 +1,141 @@
+create table newsalary (salid int,amount int not null);
+
+insert into newsalary select * from salary;
+
+
+Alter - can modify the structure of the table.(add column, remove a columns, modify the existing column datatype and rename a column)
+
+update salary set Amount=case sid 
+when 101 then Amount+1000 
+ELSE 
+amount 
+end;
+
+Neiwork traffic, time saving
+
+update salary set Amount=case sid 
+when 102 then Amount+2000
+when 103 then Amount+3000
+when 104 then Amount+4000 
+ELSE 
+amount 
+end;
+
+SELECT 10-7;
+
+SELECT amount,(amount*10/100),(amount+(amount*10/100)) FROM `salary`;
+
+function
+1. predefined function
+	1. default - in () is empty
+	2. parameterized - (parameter) 
+
+SELECT ceil(17.36);
+
+SELECT ceil(-17.36);
+
+1. Complete Yesterday SQL Exercise
+2. Apply formula in SQL
+3. Goto Day 1 Exercise.
+
+
+Lakshmi
+hasitha
+--------------------------
+
+Create a table for Student and Course
+
+1. Course (Couid, Coursename, fees , duration)
+2. Students(stdid, stdname, course)
+
+reference - both table.
+------------------
+Select the name of each manufacturer along with the name and price of its most expensive product.
+
+select mod(25,4);
+select mod(-25,4);
+select power(2,3); 
+
+select power(2,3) "POWER VALUE";
+select lower("SAMPLE");
+
+select empname,lower(empname) "Small" , upper(empname) "Large" from Emp;
+
+SELECT empname,trim(empname) FROM `emp`;
+
+select trim(Trailing '6' from 123456);
+
+select trim(Trailing '6' from 123456),trim(Leading  '1' from 123456), trim('1' from 123451);
+
+select empname,trim(Leading 'A' from empname),trim(Trailing 'A' from empname) from Emp;
+
+SELECT empname, trim('d' from empname)  `emp` 
+
+
+select trim('1' from 123451);
+select empname, trim('d' from empname) from emp;
+
+select translate('Sample','pl','PL');
+--------------------------------------------------------
+
+select jobid "JOB ID",count(*) "No of Emp" from Emp group by jobid;
+
+We can combine 2 table by giving alias name;
+
+used to display columns from both table in a single select
+select e.jobid,j.jobname,j.salary,e.empname,e.city  from Emp e, job j where e.jobid=j.jobid;
+
+select e.jobid,j.jobname,j.salary,e.empname,e.city  from emp e , job j where j.jobid=e.jobid;
+
+select e.jobid,j.jobname,j.salary,e.empname,e.city from emp e,job j where e.jobid=j.jobid;
+
+select e.jobid,j.jobname,j.salary,e.empname,e.city from emp e,job j where e.jobid=j.jobid group by e.jobid having count(*) >=1;
+
+select e.jobid "Job id",j.jobname "Job Name", sum(j.salary) "Sum of Salary" from Emp e, job j where e.jobid=j.jobid group by e.jobid;
+
+select * from Job;
+select * from Emp;
+
+select * from Emp where city='Rajahmundry' and jobid>2;
+select * from Emp where city='Rajahmundry' or jobid>2;
+select * from Emp where city<>'Rajahmundry' or jobid>2;
+select * from Emp where city<>'Rajahmundry' and jobid>2;
+
+select  * from Emp  where city like '%a' and jobid in(7,3);
+select  * from Emp  where not city like '%a';
+
+select  * from Emp  where   ( not city like '%a' and jobid>4);
+
+select jobid,jobname,salary,(salary*10/100) PF,(salary+(salary*10/100)) "Total Salary" from Job;
+
+select version();
+
+show tables;
+select pi();
+select rand();
+select empname, reverse(empname) from emp;
+
+select curdate();
+select now();
+
+select datediff(curdate(),'2022-05-13');
+
+select datediff('2022-05-13',curdate());
+
+select curtime();
+
+select day(curdate()),month(curdate()),year(curdate());
+
+select dayname(curdate()),dayofweek(curdate()),week(curdate()), weekday(curdate());
+
+select adddate(curdate(), interval 1 month),subdate(curdate(), interval 1 month);
+
+
+
+
+
+
+
+
+
+
