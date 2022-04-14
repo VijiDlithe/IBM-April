@@ -1,0 +1,161 @@
+Advanced Topics in MySql.
+
+General Structure and rules:
+Routine : (One we create can use N no of times)
+we can use all control statements into the routine. (like if, for,while,case and do)
+1. Procedure
+	1. User defined
+		1. default  - () is empty. if u r not pass any parameter in (), its called as default procedure.
+		2. Parameterized - if u  pass any parameter in the(), its called as parameterized procedure. 
+in ( get values - input variable) ,out (allow to print values - output variable),inout - can use/store input and out values in a same variable)
+			1. call by value
+			2. call by reference(python, C sharp, Java, Sql)/Address (c and C++)
+			(instead of address it pass/use the object of the class.)
+
+	2. Predefined
+		1. default
+		2. Parameterized
+			1. call by value
+			2. call by reference
+
+2. Function
+	1. User defined
+		1. default
+		2. Parameterized
+			1. call by value
+			2. call by reference
+
+	2. Predefined
+		1. default
+		2. Parameterized
+			1. call by value
+			2. call by reference
+function should return a value by default. If you dont want to return any value , can use void .
+
+Procedure doesnot return any value.
+In Sql - difference between Stored Procedure and function:
+
+1. Procedure can execute independently.
+2. function needs a query to execute.
+
+--------------------------------------------------------------
+DELIMITER //
+create procedure IBM.getAllSalary()
+BEGIN
+select salary from Job;
+end//
+
+call getAllSalary();
+DELIMITER- indicates start the procedure
+create procedure - keywords
+begin , end - kind of block  . similar to { and } of if, for , while statements
+we can use all queries within begin and end block.
+
+
+Sql is not case sentitive language.
+
+You can use the below query in ur C sharp, Python, java, javascript, vb, php and so on (server side Scripting lang)
+
+call getAllSalary() 
+ 
+we can avoid network traffic, memory consuming , time taken  by using procedures.
+------------------------------------------------
+
+ In industry 95% queries are using in STORED PROCEDURE only
+ ----------------------------------------
+
+-------------------------------------------------------
+DELIMITER //
+create procedure IBM.getName(in ename varchar(50))
+BEGIN
+select *  from emp where empname=ename;
+end//
+
+call getName('Nallamilli Gayathri Sowjanya');
+---------------------------------------------------
+DELIMITER //
+create procedure IBM.setCounter(inout counter int,in inc int)
+BEGIN
+set counter=counter+inc;
+end//
+
+
+set @counter=1;
+call setCounter(@counter,5);
+select @counter;
+call setCounter(@counter,2);
+select @counter;
+--------------------------------------------------
+DELIMITER //
+create procedure IBM.getCityCount(in ecity varchar(50),out total int)
+BEGIN
+select count(city) into total from emp where city=ecity;
+end//
+
+call getCityCount('kakinada',@total);
+select @total;
+
+In c and C++
+main()
+{
+int c=sum();
+printf(c);
+}
+sum()
+{
+int a=10,b=20;
+return(a+b);
+}
+-----------------------------------------------------
+DELIMITER //
+create procedure IBM.getTotal()
+BEGIN
+declare total int default 0;
+select count(*) into total from emp;
+select total;
+end//
+
+call getTotal();
+-------------------- 
+In c and C++
+main()
+{
+ sum(); 
+}
+sum()
+{
+int a=10,b=20;
+print(a+b);
+}
+--------------------------------
+declare total int default 0;
+similar to
+int a=0; (c,c++,java,C#)
+--------------------------------
+
+ DELIMITER //
+create procedure IBM.getSal(in jid int,out status1 varchar(50))
+BEGIN
+declare sal int default 0;
+select salary into sal from job where jobid=jid;
+if sal>=100000 then
+set status1="No incentive";
+else
+set status1="Eligible for incentive";
+end if;
+end//
+
+call getsal(10,@status1);
+select @status1;
+
+
+
+
+
+
+
+
+
+
+
+
