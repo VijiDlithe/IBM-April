@@ -1,0 +1,272 @@
+Advanced Topics in MySql.
+
+General Structure and rules:
+Routine : (One we create can use N no of times)
+we can use all control statements into the routine. (like if, for,while,case and do)
+1. Procedure
+	1. User defined
+		1. default  - () is empty. if u r not pass any parameter in (), its called as default procedure.
+		2. Parameterized - if u  pass any parameter in the(), its called as parameterized procedure. 
+in ( get values - input variable) ,out (allow to print values - output variable),inout - can use/store input and out values in a same variable)
+			1. call by value
+			2. call by reference(python, C sharp, Java, Sql)/Address (c and C++)
+			(instead of address it pass/use the object of the class.)
+
+	2. Predefined
+		1. default
+		2. Parameterized
+			1. call by value
+			2. call by reference
+
+2. Function
+	1. User defined
+		1. default
+		2. Parameterized
+			1. call by value
+			2. call by reference
+
+	2. Predefined
+		1. default
+		2. Parameterized
+			1. call by value
+			2. call by reference
+function should return a value by default. If you dont want to return any value , can use void .
+
+Procedure doesnot return any value.
+In Sql - difference between Stored Procedure and function:
+
+1. Procedure can execute independently.
+2. function needs a query to execute.
+
+--------------------------------------------------------------
+DELIMITER //
+create procedure IBM.getAllSalary()
+BEGIN
+select salary from Job;
+end//
+
+call getAllSalary();
+DELIMITER- indicates start the procedure
+create procedure - keywords
+begin , end - kind of block  . similar to { and } of if, for , while statements
+we can use all queries within begin and end block.
+
+
+Sql is not case sentitive language.
+
+You can use the below query in ur C sharp, Python, java, javascript, vb, php and so on (server side Scripting lang)
+
+call getAllSalary() 
+ 
+we can avoid network traffic, memory consuming , time taken  by using procedures.
+------------------------------------------------
+
+ In industry 95% queries are using in STORED PROCEDURE only
+ ----------------------------------------
+
+-------------------------------------------------------
+DELIMITER //
+create procedure IBM.getName(in ename varchar(50))
+BEGIN
+select *  from emp where empname=ename;
+end//
+
+call getName('Nallamilli Gayathri Sowjanya');
+---------------------------------------------------
+DELIMITER //
+create procedure IBM.setCounter(inout counter int,in inc int)
+BEGIN
+set counter=counter+inc;
+end//
+
+
+set @counter=1;
+call setCounter(@counter,5);
+select @counter;
+call setCounter(@counter,2);
+select @counter;
+--------------------------------------------------
+DELIMITER //
+create procedure IBM.getCityCount(in ecity varchar(50),out total int)
+BEGIN
+select count(city) into total from emp where city=ecity;
+end//
+
+call getCityCount('kakinada',@total);
+select @total;
+
+In c and C++
+main()
+{
+int c=sum();
+printf(c);
+}
+sum()
+{
+int a=10,b=20;
+return(a+b);
+}
+-----------------------------------------------------
+DELIMITER //
+create procedure IBM.getTotal()
+BEGIN
+declare total int default 0;
+select count(*) into total from emp;
+select total;
+end//
+
+call getTotal();
+-------------------- 
+In c and C++
+main()
+{
+ sum(); 
+}
+sum()
+{
+int a=10,b=20;
+print(a+b);
+}
+--------------------------------
+declare total int default 0;
+similar to
+int a=0; (c,c++,java,C#)
+--------------------------------
+
+ DELIMITER //
+create procedure IBM.getSal(in jid int,out status1 varchar(50))
+BEGIN
+declare sal int default 0;
+select salary into sal from job where jobid=jid;
+if sal>=100000 then
+set status1="No incentive";
+else
+set status1="Eligible for incentive";
+end if;
+end//
+
+call getsal(10,@status1);
+select @status1;
+---------------------------------------------------
+
+
+
+DELIMITER //
+create procedure IBM.setCounter1(inout counter int,in inc int) = counter - 1 inc=5
+BEGIN
+set counter=counter+inc; // counter = 1+5 // doing assigning value into counter
+end//
+
+inout counter int - counter is a parameter variable , can use this count AS input varibale and output variable.
+inc - input variable;
+
+set counter=counter+inc; 
+// similar to 
+a=10;
+
+
+
+set @counter=1;
+call setCounter(@counter,5);
+select @counter;     // 6
+call setCounter(@counter,2);
+select @counter;
+--------------------------------------------------
+delimiter //
+create function isEligible(salary int)
+returns varchar(50)
+deterministic
+begin
+if salary<80000 then
+return("Yes");
+else
+return("No");
+end if;
+end;//
+
+select iseligible(60000);
+-----------------------------------------------------
+delimiter //
+create function getCity(eid varchar(50))
+returns varchar(50)
+deterministic
+begin
+declare ccity varchar(50);
+select city into ccity from emp where empid=eid;
+return (ccity);
+end;//
+
+in my sql or C sharp
+
+select distinct getcity('E003') from emp;
+select distinct getcity('E003'),empname from emp where empid='E003';
+--------------------------------------------------------
+
+Joins:
+1. Inner join
+2. Left Join
+3. Right Join
+4. Outer Join
+5. Cross Join
+Uses - we can interconnect a two tables and display only matched records from both tables.
+
+select e.empid,e.empname ,j.jobname,j.salary from emp e INNER join job j;
+
+select  e.empname ,j.jobname  from emp e INNER join job j;
+select e.jobid,e.empid,e.empname ,j.jobname,j.salary from emp e INNER join job j on e.jobid=j.jobid;
+
+select j.jobid,e.empid,e.empname ,j.jobname,j.salary from emp e INNER join job j on e.jobid=j.jobid;
+ 
+select j.jobid,e.empid,e.empname ,j.jobname,j.salary from emp e INNER join job j on e.jobid=j.jobid order by e.empname;
+
+create table Attendance (Aid int primary key auto_increment, cdate date,type boolean,Empid varchar(50), foreign key(Empid) references Emp(empid));
+
+insert into Attendance(cdate,Type,Empid) values('2022-04-13',True,'E004');
+insert into Attendance(cdate,Type,Empid) values('2022-04-13',True,'E007');
+insert into Attendance(cdate,Type,Empid) values('2022-04-13',True,'E009');
+insert into Attendance(cdate,Type,Empid) values('2022-04-14',True,'E004');
+insert into Attendance(cdate,Type,Empid) values('2022-04-14',False,'E007');
+insert into Attendance(cdate,Type,Empid) values('2022-04-14',True,'E009');
+
+select * from Atttendance;
+
+select e.empid,e.empname,j.jobname,j.salary,a.cdate,a.type from emp e inner join job j on j.jobid=e.jobid inner join attendance a on a.empid=e.empid;
+select e.empid,e.empname,a.cdate,a.type from emp e Left join  attendance a on a.empid=e.empid;
+select e.empid,e.empname,a.cdate,a.type from emp e Right join  attendance a on a.empid=e.empid;
+
+select e.empid,e.empname,a.cdate,a.type from attendance a Left join  emp e on a.empid=e.empid;
+select e.empid,e.empname,a.cdate,a.type from attendance a Right join  emp e  on a.empid=e.empid;
+
+--------------------
+
+create table airport(id bigint primary key,airport_name varchar(50),country varchar(50),state varchar(50),city varchar(50),created_at timestamp,update_at timestamp default CURRENT_TIMESTAMP);
+
+create table airline(id bigint primary key,airline_code bigint,airline_name varchar(50),airline_country varchar(50),created_at timestamp,update_at timestamp default CURRENT_TIMESTAMP);
+
+create table flights(flight_id bigint primary key,departing_gate varchar(50),arriving_gate varchar(50),created_at timestamp,update_at timestamp default CURRENT_TIMESTAMP,airline_id bigint,departing_airport_id bigint,arriving_airport_id bigint, foreign key(airline_id) references airline(id),foreign key(departing_airport_id) references airport(id), foreign key(arriving_airport_id) references airport(id));
+ 
+insert into airport(id,airport_name,country,state,city,created_at,update_at)values(1,'DEL','India','DELHI',DELHI',now(),now());
+insert into airport(id,airport_name,country,state,city,created_at,update_at)values(2,'AP1','India','ANDRA','Rajahmundry',now(),now());
+insert into airport(id,airport_name,country,state,city,created_at,update_at)values(3,'AP2','India','ANDRA','Kakinada',now(),now());
+
+insert into airline(id,airline_code,airline_name,airline_country,created_at,update_at) values(101,1001,'Indigo','India',now(),now());
+insert into airline(id,airline_code,airline_name,airline_country,created_at,update_at) values(102,2001,'Airways','Japan',now(),now());
+insert into airline(id,airline_code,airline_name,airline_country,created_at,update_at) values(103,4001,'Airindia','Malaysia',now(),now());
+
+insert into flights(flight_id,departing_gate,arriving_gate,created_at,update_at,airline_id,departing_airport_id,arriving_airport_id) values(701,'Gate 1','Gate 2',now(),now(),101,1,3);
+insert into flights(flight_id,departing_gate,arriving_gate,created_at,update_at,airline_id,departing_airport_id,arriving_airport_id) values(702,'Gate 4','Gate 7',now(),now(),103,2,3);
+
+
+insert into flights(flight_id,departing_gate,arriving_gate,created_at,update_at,airline_id,departing_airport_id,arriving_airport_id) values(703,'Gate 4','Gate 7',now(),now(),103,3,2);
+-------------------------------------------------------------------------
+
+Subquery:
+Query within Query is called suquery (Like nested if)
+inner query/sub subquery pass the data to the outer query;
+select * from  Emp where jobid=(select jobid from job where jobname="Senior Developer"); 
+select jobid,jobname,salary from job where salary>(select avg(salary) from job);
+
+select * from  Emp where jobid in(select jobid from job where salary>(select avg(salary) from job)); 
+select * from  Emp where jobid in(select jobid from job where jobname="Manager" and salary>(select avg(salary) from job));
+select count(jobid) from job where salary>(select avg(salary) from job);
+--------------------------------------------------------------------
