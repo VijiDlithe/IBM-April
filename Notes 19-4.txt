@@ -1,0 +1,47 @@
+CSS - Cascading Style Sheet
+It's used to apply designs, styles, and animations for a web page.
+
+CSS Types:
+1. Inline CSS
+2. Internal CSS
+3. External CSS.
+
+Trend - CSS3
+word 2007 -.docx
+word 2003 - .doc
+
+yourname.gmail.com
+yourname.gmail.in 
+------------------------------
+Advantages of release version:
+1. Release after rectify the previous version bug.
+2. Can include new feature also(i.e-after releasing previous version)
+
+-----------------------------------
+How can use CSS?
+1. using tag name
+2. using id
+3. using class name.
+--------------------------------
+Example - Internal stylesheet
+<head>
+<style type="text/css">
+h1{color:red;background:white;}
+p{font-size:12pt;font-style: italic;}
+</style>
+</head>
+
+1. style tag - css style tag should be within head, then only can use the entire page.
+2. h1,p -> tags
+3. color:red; background:white; - attributes for h1 and p tags
+
+-----------------------
+. - class type
+onmouseover,onmouseout
+-------------------------------
+Javascript Used to Animations/validations and verifications:
+write business logic and OOPS concepts.
+
+<input type = "submit" value = "SUBMIT">
+Button - submit (Also kind of button)
+// - C,c++, C Sharp and java

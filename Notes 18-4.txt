@@ -1,0 +1,66 @@
+Front end technologies list that is set to dominate 2022.
+1. HTML5 Boilerplate
+2. CSS3
+3. JavaScript
+4. Bootstrap
+5. Angular 
+6. Flutter(Mobile Application)
+7. Vue.js (Getting Popular)
+8. ReactJS
+9. TypeScript
+--------------------------------------------
+1. HTML
+What is Markup lang?
+If any lang supports tags <> , that kind of langs are called markup lang. There are more than 98 lang are there.
+
+Mostly used editor for HTML
+1. Notepad
+2. Notepad++ (recommended for beginners)
+3. VS Code (Industry)
+---------------------------
+
+<hr color="red" size="5" width="200" />
+hr - Tag
+color,size, width - Key
+red,5,200 - value. (As per the w3c standards values should be within "")
+The attribute/properties should be as a pair.
+attributes give special features of a tag.
+Tag with Content.
+--------------------
+&nbsp; - Entity - should end with ;
+non breaking space
+------------------------
+Emojis are also characters from the UTF-8 alphabet:
+
+😄 is 128516
+😍 is 128525
+💗 is 128151 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<h1>My First Emoji</h1>
+
+<p>&#128512;</p>
+
+</body>
+</html>
+--------------------------------------------------
+&quot;   quotation mark   &#34;<br>
+"This is sample"
+
+----------------------------------------------------
+List
+1. Ol - type A,a,I,i,1
+2. UL - type circle,square, disc
+--------------------------------------
+Combination of rows and columns are called cells.
+
+
+
+
+
+
