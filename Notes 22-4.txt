@@ -1,0 +1,66 @@
+OOPS-Features
+1. Real world things
+2. Resilence to change
+3. Reusability
+
+----------------------
+Abstract class
+1. We can't create an abstract class.
+
+Sealed Class
+ // Sealed is a keyword. It doesnot allow to inherit a class into another class.
+-------------------------
+Static:
+we can use static before a class, method, variable.
+
+If you want to use a static method from a static class,you no need to create Object. wee can use by using class name itself.
+A static method can be in static class only.
+A static method can use only static variable.
+-------------------------------------
+Access specifier - It allows the visiblity/access of class, methods and variable.
+1. private, protected, public, internal, protected internal
+--------------------------------------
+Inheritance - Creating a new class from an existing class .
+Existing class as base / parent/super class
+New Class as sub/child/derived
+
+Uses - the dericed class can use the properties/member variable/attribute and methods from the base class.
+1. Single - 1 base class ,and 1 sub class.
+2. multilevel - chain of inheritance
+3. Multiple (java and c sharp does not support multiple inheritance)
+because of Ambiguitive error.
+
+class A
+{
+void display(){}
+}
+class B
+{
+void display(){}
+}
+
+class C:A,B
+{
+void display()
+{
+display(); 
+}
+}
+
+
+4. hierarchal - if u inherit a class into more than 1 base class , its called hierarchy
+5. Hybrid = Combination of any 2 types of inheritance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
