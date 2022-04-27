@@ -1,4 +1,5 @@
-  <form id="form1" runat="server">
+
+    <form id="form1" runat="server">
          <center>
                 <table border="1" style="width:40%;">
                     <tr>
@@ -37,25 +38,32 @@
                      <tr>
                         <td class="auto-style1" ><asp:Label ID="Label9" runat="server" Text="Qualification" ></asp:Label></td>
                         <td class="auto-style1">
-                            <asp:RadioButton ID="UG"  runat="server" /> <asp:RadioButton ID="PG" TextAlign="Right" runat="server" /></td>
+                            <asp:RadioButton ID="UG" Text="UG" GroupName="qua" runat="server" />
+                            <asp:RadioButton ID="PG" Text="PG" GroupName="qua" TextAlign="Right" runat="server" /></td>
                     </tr>
                     <tr> 
                         <td class="auto-style1"> <asp:Label ID="Label10" runat="server" Text="Designation"></asp:Label></td>
                         <td class="auto-style1">
-                            <asp:CheckBox ID="Developer"  runat="server" /> <asp:CheckBox ID="Tester" runat="server" /> </td>
+                            <asp:CheckBox ID="Developer" Text="Developer"  runat="server" /> 
+                            <asp:CheckBox ID="Tester" Text="Tester" runat="server" /> </td>
                     </tr>
                      <tr>
                         <td class="auto-style1"><asp:Label ID="Label12" runat="server" Text="Department"></asp:Label></td>
                         <td class="auto-style1">
-                            <asp:DropDownList ID="txtdepartment" runat="server" ></asp:DropDownList></td>
+                            <asp:DropDownList ID="txtdepartment" runat="server" >
+                                <asp:ListItem>- Select -</asp:ListItem>
+                                <asp:ListItem>CSC</asp:ListItem>
+                                <asp:ListItem>IT</asp:ListItem>
+                                <asp:ListItem>ECE</asp:ListItem>
+                            </asp:DropDownList></td>
                     </tr>
                      <tr>
                         <td class="auto-style1"><asp:Label ID="Label13" runat="server" Text="Photo"></asp:Label></td>
                         <td class="auto-style1">
-                            <asp:Image ID="Image1" runat="server" Height="122px" Width="167px" /></td>
+                            <asp:Image ID="Image1" ImageUrl="~/Images/mango.jpg" runat="server" Height="122px" Width="167px" /></td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td aign="center" colspan="2">
                             <asp:Button ID="btnregister" runat="server" Text="Register" OnClick="btnregister_Click" /> 
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                             <asp:Button ID="btncancel" runat="server" Text="Cancel" OnClick="btncancel_Click" /> 
